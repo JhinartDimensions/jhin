@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法國巴黎音樂與創新表演藝術學院</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #1a237e;
+            text-align: center;
+            font-size: 28px;
+            margin-top: 30px;
+        }
+        h2 {
+            color: #4a148c;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 10px;
+            font-size: 22px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #303f9f;
+            font-size: 18px;
+            border-left: 4px solid #7e57c2;
+            padding-left: 10px;
+            margin-top: 25px;
+            background-color: #f5f5f5;
+            padding: 8px 15px;
+            border-radius: 0 4px 4px 0;
+        }
+        .section {
+            margin-bottom: 50px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .bilingual {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 15px;
+        }
+        .chinese {
+            flex: 1;
+            padding-right: 15px;
+        }
+        .english {
+            flex: 1;
+            padding-left: 15px;
+            border-left: 1px solid #ddd;
+            color: #555;
+        }
+        .course {
+            background-color: #f5f5f5;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-left: 4px solid #7e57c2;
+            border-radius: 4px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 3px double #ffd700;
+            padding-bottom: 20px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* 語言切換 */
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        .lang-btn {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            margin: 0 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            min-width: 80px;
+            text-align: center;
+            -webkit-tap-highlight-color: transparent; /* 移除Safari上的點擊高亮 */
+            touch-action: manipulation; /* 優化觸控行為 */
+            user-select: none; /* 防止文字被選中 */
+            -webkit-user-select: none;
+        }
+        .lang-btn:hover, .lang-btn:focus {
+            background-color: #e0e0e0;
+            outline: none;
+        }
+        .lang-btn.active {
+            background-color: #4a148c;
+            color: white;
+            border-color: #4a148c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        /* 語言內容 */
+        .en, .fr {
+            display: none;
+        }
+
+        /* 內容區塊 */
+        .content-block {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #fafafa;
+            border: 1px solid #eee;
+        }
+        
+        /* RWD 響應式設計 */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            h2 {
+                font-size: 18px;
+            }
+            h3 {
+                font-size: 16px;
+            }
+            .bilingual {
+                flex-direction: column;
+            }
+            .chinese {
+                padding-right: 0;
+                margin-bottom: 15px;
+            }
+            .english {
+                padding-left: 0;
+                border-left: none;
+                border-top: 1px solid #ddd;
+                padding-top: 15px;
+            }
+            .lang-switch {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                margin: 15px 0;
+            }
+            .lang-btn {
+                padding: 10px 15px;
+                font-size: 16px;
+                margin: 5px;
+                min-width: 80px;
+                flex: 0 0 auto;
+            }
+            .section, .header, .footer {
+                padding: 15px;
+            }
+            .content-block {
+                padding: 10px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 20px;
+                margin-top: 20px;
+            }
+            .header {
+                margin-bottom: 25px;
+                padding-bottom: 15px;
+            }
+            .section {
+                margin-bottom: 25px;
+                padding: 12px;
+            }
+            .lang-btn {
+                padding: 8px 10px;
+                font-size: 14px;
+                margin: 3px;
+                min-width: 60px;
+                flex: 1 1 25%;
+                max-width: 80px;
+            }
+            .lang-switch {
+                padding: 0;
+                margin: 12px 0;
+                gap: 6px;
+                justify-content: space-around;
+            }
+        }
+    </style>
+    <!-- 一個簡單的內聯腳本，保證在本地檔案中也能執行 -->
+    <script>
+        function switchLang(lang) {
+            // 隱藏所有語言
+            var zhElems = document.getElementsByClassName('zh');
+            var enElems = document.getElementsByClassName('en');
+            var frElems = document.getElementsByClassName('fr');
+            
+            // 隱藏全部
+            for (var i = 0; i < zhElems.length; i++) zhElems[i].style.display = 'none';
+            for (var i = 0; i < enElems.length; i++) enElems[i].style.display = 'none';
+            for (var i = 0; i < frElems.length; i++) frElems[i].style.display = 'none';
+            
+            // 顯示選中語言
+            var showElems;
+            if (lang === 'zh') {
+                showElems = zhElems;
+                document.title = '法國巴黎音樂與創新表演藝術學院';
+            } else if (lang === 'en') {
+                showElems = enElems;
+                document.title = 'Concordance des Arts – Paris Academy of Music and Creative Innovation';
+            } else if (lang === 'fr') {
+                showElems = frElems;
+                document.title = 'Concordance des Arts – École de musique de Paris';
+            }
+            
+            // 顯示選中語言
+            for (var i = 0; i < showElems.length; i++) showElems[i].style.display = 'block';
+            
+            // 更新按鈕樣式
+            var btns = document.getElementsByClassName('lang-btn');
+            for (var i = 0; i < btns.length; i++) {
+                if (btns[i].getAttribute('data-lang') === lang) {
+                    btns[i].className = 'lang-btn active';
+                } else {
+                    btns[i].className = 'lang-btn';
+                }
+            }
+        }
+        
+        // 頁面載入後顯示中文
+        window.onload = function() {
+            switchLang('zh');
+        };
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="zh"><h1>法國巴黎音樂與創新表演藝術學院</h1></div>
+        <div class="en"><h1>Concordance des Arts – Paris Academy of Music and Creative Innovation</h1></div>
+        <div class="fr"><h1>Concordance des Arts – École de musique de Paris</h1></div>
+        
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="zh" onclick="switchLang('zh')">中文</button>
+            <button class="lang-btn" data-lang="en" onclick="switchLang('en')">English</button>
+            <button class="lang-btn" data-lang="fr" onclick="switchLang('fr')">Français</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="zh"><h2>1. 學校介紹</h2></div>
+        <div class="en"><h2>1. About the School</h2></div>
+        <div class="fr"><h2>1. À propos de l'École</h2></div>
+        
+        <div class="zh"><h3>校名與命名理念</h3></div>
+        <div class="en"><h3>School Name and Naming Philosophy</h3></div>
+        <div class="fr"><h3>Nom de l'École et Philosophie d'Appellation</h3></div>
+        
+        <div class="zh content-block">
+            <p>- 法文全名：Concordance des Arts – École de musique de Paris</p>
+            <p>- 中文名稱：法國巴黎音樂與創新表演藝術學院</p>
+            <p>- 英文名稱：Concordance des Arts – Paris Academy of Music and Creative Innovation</p>
+            <p>"Concordance des Arts"象徵藝術間的和諧與融合，展現我們跨域結合多元藝術的核心理念。</p>
+        </div>
+        <div class="en content-block">
+            <p>- French Name: Concordance des Arts – École de musique de Paris</p>
+            <p>- Chinese Name: 法國巴黎音樂與創新表演藝術學院</p>
+            <p>- English Name: Concordance des Arts – Paris Academy of Music and Creative Innovation</p>
+            <p>"Concordance des Arts" symbolizes the harmony and integration between different art forms, reflecting our core philosophy of cross-disciplinary artistic integration.</p>
+        </div>
+        <div class="fr content-block">
+            <p>- Nom français: Concordance des Arts – École de musique de Paris</p>
+            <p>- Nom chinois: 法國巴黎音樂與創新表演藝術學院</p>
+            <p>- Nom anglais: Concordance des Arts – Paris Academy of Music and Creative Innovation</p>
+            <p>"Concordance des Arts" symbolise l'harmonie et l'intégration entre différentes formes d'art, reflétant notre philosophie fondamentale d'intégration artistique interdisciplinaire.</p>
+        </div>
+
+        <div class="zh"><h3>創辦初衷</h3></div>
+        <div class="en"><h3>Founding Purpose</h3></div>
+        <div class="fr"><h3>Objectif de Fondation</h3></div>
+        
+        <div class="zh content-block">
+            <p>本校立足於藝術與科技的交會點，致力於打破傳統教學分野，創造一個無邊界的學習環境。</p>
+        </div>
+        <div class="en content-block">
+            <p>Our academy stands at the intersection of arts and technology, dedicated to breaking traditional educational boundaries and creating a borderless learning environment.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Notre académie se situe à l'intersection des arts et de la technologie, dédiée à briser les frontières éducatives traditionnelles et à créer un environnement d'apprentissage sans limites.</p>
+        </div>
+
+        <div class="zh"><h3>地點</h3></div>
+        <div class="en"><h3>Location</h3></div>
+        <div class="fr"><h3>Emplacement</h3></div>
+        
+        <div class="zh content-block">
+            <p>法國巴黎，藝術與創新的世界之都</p>
+        </div>
+        <div class="en content-block">
+            <p>Paris, France – a global capital of arts and innovation</p>
+        </div>
+        <div class="fr content-block">
+            <p>Paris, France – capitale mondiale des arts et de l'innovation</p>
+        </div>
+
+        <div class="zh"><h3>組織性質</h3></div>
+        <div class="en"><h3>Organizational Structure</h3></div>
+        <div class="fr"><h3>Structure Organisationnelle</h3></div>
+        
+        <div class="zh content-block">
+            <p>École privée hors contrat（非合約私校），具備發展RNCP文憑的潛力，提供國際認可的藝術教育證書。</p>
+        </div>
+        <div class="en content-block">
+            <p>A private educational institution (École privée hors contrat) with the potential to develop RNCP diplomas, offering internationally recognized certificates in arts education.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Une institution éducative privée (École privée hors contrat) avec le potentiel de développer des diplômes RNCP, offrant des certificats internationalement reconnus en éducation artistique.</p>
+        </div>
+
+        <div class="zh"><h3>學校使命與願景</h3></div>
+        <div class="en"><h3>Mission & Vision</h3></div>
+        <div class="fr"><h3>Mission & Vision</h3></div>
+        
+        <div class="zh content-block">
+            <p>使命：培養具備全球視野、跨域能力與創新思維的新世代藝術科技人才。</p>
+            <p>願景：成為連結東西方文化、融合虛實教學的國際領先藝術創新教育平台。</p>
+        </div>
+        <div class="en content-block">
+            <p>Mission: To cultivate a new generation of artistic and technological talents with global vision, cross-disciplinary abilities, and innovative thinking.</p>
+            <p>Vision: To become an internationally leading platform for artistic innovation education that connects Eastern and Western cultures through integrated virtual and physical learning.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Mission: Cultiver une nouvelle génération de talents artistiques et technologiques dotés d'une vision globale, de capacités interdisciplinaires et d'une pensée innovante.</p>
+            <p>Vision: Devenir une plateforme internationale de premier plan pour l'éducation à l'innovation artistique qui relie les cultures orientales et occidentales grâce à un apprentissage virtuel et physique intégré.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="zh"><h2>2. 創校理念</h2></div>
+        <div class="en"><h2>2. Founding Philosophy</h2></div>
+        <div class="fr"><h2>2. Philosophie Fondatrice</h2></div>
+        
+        <div class="zh"><h3>藝術與科技不分家</h3></div>
+        <div class="en"><h3>Arts and Technology as One</h3></div>
+        <div class="fr"><h3>Arts et Technologie comme Un</h3></div>
+        
+        <div class="zh content-block">
+            <p>我們相信藝術與科技是相輔相成的創造力來源，未來的藝術家需掌握科技，而科技開發者也需理解藝術表達。</p>
+        </div>
+        <div class="en content-block">
+            <p>We believe that arts and technology are complementary sources of creativity. Future artists need to master technology, while technology developers need to understand artistic expression.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Nous croyons que les arts et la technologie sont des sources complémentaires de créativité. Les artistes du futur doivent maîtriser la technologie, tandis que les développeurs technologiques doivent comprendre l'expression artistique.</p>
+        </div>
+
+        <div class="zh"><h3>回應未來挑戰</h3></div>
+        <div class="en"><h3>Responding to Future Challenges</h3></div>
+        <div class="fr"><h3>Répondre aux Défis Futurs</h3></div>
+        
+        <div class="zh content-block">
+            <p>教育應回應未來世界的跨域挑戰與人機共生時代，培養學生適應不斷變化的全球環境。</p>
+        </div>
+        <div class="en content-block">
+            <p>Education should respond to cross-disciplinary challenges of the future world and the era of human-machine coexistence, preparing students to adapt to an ever-changing global environment.</p>
+        </div>
+        <div class="fr content-block">
+            <p>L'éducation doit répondre aux défis interdisciplinaires du monde futur et à l'ère de la coexistence homme-machine, préparant les étudiants à s'adapter à un environnement mondial en constante évolution.</p>
+        </div>
+
+        <div class="zh"><h3>開放創新平台</h3></div>
+        <div class="en"><h3>Open Innovation Platform</h3></div>
+        <div class="fr"><h3>Plateforme d'Innovation Ouverte</h3></div>
+        
+        <div class="zh content-block">
+            <p>打造自由表達、開放創新、國際流動的平台，鼓勵學生突破藝術邊界。</p>
+        </div>
+        <div class="en content-block">
+            <p>Creating a platform for free expression, open innovation, and international mobility that encourages students to break through artistic boundaries.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Créer une plateforme d'expression libre, d'innovation ouverte et de mobilité internationale qui encourage les étudiants à franchir les frontières artistiques.</p>
+        </div>
+
+        <div class="zh"><h3>尊重個體差異</h3></div>
+        <div class="en"><h3>Respecting Individual Differences</h3></div>
+        <div class="fr"><h3>Respect des Différences Individuelles</h3></div>
+        
+        <div class="zh content-block">
+            <p>強調個體差異、創造力培養、全球文化對話，每位學生都有獨特的藝術旅程與表達方式。</p>
+        </div>
+        <div class="en content-block">
+            <p>Emphasizing individual differences, creativity cultivation, and global cultural dialogue, recognizing that each student has a unique artistic journey and mode of expression.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Mettre l'accent sur les différences individuelles, la culture de la créativité et le dialogue culturel mondial, en reconnaissant que chaque étudiant a un parcours artistique unique et un mode d'expression propre.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="zh"><h2>3. 核心課程</h2></div>
+        <div class="en"><h2>3. Curriculum Overview</h2></div>
+        <div class="fr"><h2>3. Aperçu du Programme</h2></div>
+        
+        <div class="zh"><h3>音樂</h3></div>
+        <div class="en"><h3>Music</h3></div>
+        <div class="fr"><h3>Musique</h3></div>
+        
+        <div class="zh content-block">
+            <p>融合古典與現代，東方與西方的音樂教育，結合AI創作工具與傳統演奏技巧。</p>
+            <div class="course">
+                <p>範例課程：</p>
+                <p>- 實驗電子音樂與傳統器樂融合</p>
+                <p>- AI輔助作曲與編曲技術</p>
+                <p>- 跨文化音樂理論與實踐</p>
+            </div>
+        </div>
+        <div class="en content-block">
+            <p>Integrating classical and modern, Eastern and Western music education, combining AI composition tools with traditional performance techniques.</p>
+            <div class="course">
+                <p>Sample Courses:</p>
+                <p>- Experimental Electronic Music and Traditional Instrumental Fusion</p>
+                <p>- AI-Assisted Composition and Arrangement Techniques</p>
+                <p>- Cross-Cultural Music Theory and Practice</p>
+            </div>
+        </div>
+        <div class="fr content-block">
+            <p>Intégration de l'éducation musicale classique et moderne, orientale et occidentale, combinant les outils de composition IA avec les techniques de performance traditionnelles.</p>
+            <div class="course">
+                <p>Exemples de Cours:</p>
+                <p>- Fusion de Musique Électronique Expérimentale et d'Instruments Traditionnels</p>
+                <p>- Techniques de Composition et d'Arrangement Assistées par IA</p>
+                <p>- Théorie et Pratique Musicale Interculturelle</p>
+            </div>
+        </div>
+
+        <div class="zh"><h3>舞蹈</h3></div>
+        <div class="en"><h3>Dance</h3></div>
+        <div class="fr"><h3>Danse</h3></div>
+        
+        <div class="zh content-block">
+            <p>探索身體、空間與科技的互動關係，結合動作捕捉、數位投影與現場表演。</p>
+            <div class="course">
+                <p>範例課程：</p>
+                <p>- 科技輔助編舞與動作設計</p>
+                <p>- 跨媒體舞蹈表演藝術</p>
+                <p>- 虛擬與實體空間的舞蹈創作</p>
+            </div>
+        </div>
+        <div class="en content-block">
+            <p>Exploring the interactive relationship between body, space, and technology, combining motion capture, digital projection, and live performance.</p>
+            <div class="course">
+                <p>Sample Courses:</p>
+                <p>- Technology-Assisted Choreography and Movement Design</p>
+                <p>- Cross-Media Dance Performance Art</p>
+                <p>- Dance Creation in Virtual and Physical Spaces</p>
+            </div>
+        </div>
+        <div class="fr content-block">
+            <p>Explorer la relation interactive entre le corps, l'espace et la technologie, combinant la capture de mouvement, la projection numérique et la performance en direct.</p>
+            <div class="course">
+                <p>Exemples de Cours:</p>
+                <p>- Chorégraphie Assistée par la Technologie et Conception de Mouvements</p>
+                <p>- Art de la Performance de Danse Cross-Media</p>
+                <p>- Création de Danse dans des Espaces Virtuels et Physiques</p>
+            </div>
+        </div>
+
+        <div class="zh"><h3>影像</h3></div>
+        <div class="en"><h3>Visual Media</h3></div>
+        <div class="fr"><h3>Médias Visuels</h3></div>
+        
+        <div class="zh content-block">
+            <p>培養視覺敘事能力，運用最新技術創作具有個人風格的視覺作品。</p>
+            <div class="course">
+                <p>範例課程：</p>
+                <p>- 沉浸式視覺敘事與VR創作</p>
+                <p>- 數位影像處理與藝術表現</p>
+                <p>- 跨平台視覺內容製作</p>
+            </div>
+        </div>
+        <div class="en content-block">
+            <p>Cultivating visual narrative skills, using the latest technology to create visual works with personal style.</p>
+            <div class="course">
+                <p>Sample Courses:</p>
+                <p>- Immersive Visual Storytelling and VR Creation</p>
+                <p>- Digital Image Processing and Artistic Expression</p>
+                <p>- Cross-Platform Visual Content Production</p>
+            </div>
+        </div>
+        <div class="fr content-block">
+            <p>Cultiver les compétences narratives visuelles, en utilisant les dernières technologies pour créer des œuvres visuelles avec un style personnel.</p>
+            <div class="course">
+                <p>Exemples de Cours:</p>
+                <p>- Narration Visuelle Immersive et Création VR</p>
+                <p>- Traitement d'Image Numérique et Expression Artistique</p>
+                <p>- Production de Contenu Visuel Cross-Platform</p>
+            </div>
+        </div>
+
+        <div class="zh"><h3>開發</h3></div>
+        <div class="en"><h3>Creative Tech / Development</h3></div>
+        <div class="fr"><h3>Technologie Créative / Développement</h3></div>
+        
+        <div class="zh content-block">
+            <p>教授程式設計基礎與創意科技應用，培養學生將科技轉化為藝術表達的能力。</p>
+            <div class="course">
+                <p>範例課程：</p>
+                <p>- 互動裝置設計與製作</p>
+                <p>- 創意程式設計與藝術應用</p>
+                <p>- 人工智能在藝術創作中的應用</p>
+            </div>
+        </div>
+        <div class="en content-block">
+            <p>Teaching programming fundamentals and creative technology applications, developing students' ability to transform technology into artistic expression.</p>
+            <div class="course">
+                <p>Sample Courses:</p>
+                <p>- Interactive Installation Design and Production</p>
+                <p>- Creative Programming and Artistic Applications</p>
+                <p>- Artificial Intelligence in Artistic Creation</p>
+            </div>
+        </div>
+        <div class="fr content-block">
+            <p>Enseigner les fondamentaux de la programmation et les applications technologiques créatives, développant la capacité des étudiants à transformer la technologie en expression artistique.</p>
+            <div class="course">
+                <p>Exemples de Cours:</p>
+                <p>- Conception et Production d'Installations Interactives</p>
+                <p>- Programmation Créative et Applications Artistiques</p>
+                <p>- Intelligence Artificielle dans la Création Artistique</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="zh"><h2>4. AI系統與數位學習設計</h2></div>
+        <div class="en"><h2>4. AI System & Smart Learning</h2></div>
+        <div class="fr"><h2>4. Système IA & Apprentissage Intelligent</h2></div>
+        
+        <div class="zh"><h3>學生專屬AI Agent</h3></div>
+        <div class="en"><h3>Student Personal AI Agent</h3></div>
+        <div class="fr"><h3>Agent IA Personnalisé des Étudiants</h3></div>
+        
+        <div class="zh content-block">
+            <p>每位學生配備個人化AI助理，協助學習規劃、提醒作業、整合行事曆，並提供即時學習建議。</p>
+        </div>
+        <div class="en content-block">
+            <p>Each student is equipped with a personalized AI assistant that helps with learning planning, homework reminders, calendar integration, and provides real-time learning suggestions.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Chaque étudiant est équipé d'un assistant IA personnalisé qui l'aide à planifier son apprentissage, à rappeler les devoirs, à intégrer son calendrier et à fournir des suggestions d'apprentissage en temps réel.</p>
+        </div>
+
+        <div class="zh"><h3>教師AI助教</h3></div>
+        <div class="en"><h3>Teacher's AI Teaching Assistant</h3></div>
+        <div class="fr"><h3>Assistant IA de l'Enseignant</h3></div>
+        
+        <div class="zh content-block">
+            <p>支援教師生成評語、追蹤學生學習狀況、建議補課策略，並自動整理教學資源。</p>
+        </div>
+        <div class="en content-block">
+            <p>Supports teachers in generating feedback, tracking student learning progress, suggesting remedial strategies, and automatically organizing teaching resources.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Fournit aux enseignants des commentaires générés, suit leur progression d'apprentissage, suggère des stratégies de révision et organise automatiquement les ressources pédagogiques.</p>
+        </div>
+
+        <div class="zh"><h3>國際趨勢爬蟲系統</h3></div>
+        <div class="en"><h3>International Trend Crawler System</h3></div>
+        <div class="fr"><h3>Système de Crawler de Tendances Internationales</h3></div>
+        
+        <div class="zh content-block">
+            <p>每日追蹤國際藝術與科技新聞，自動分類整理並轉化為教材，確保課程內容與全球最新發展同步。</p>
+        </div>
+        <div class="en content-block">
+            <p>Daily tracking of international arts and technology news, automatically categorizing and transforming them into teaching materials, ensuring course content stays synchronized with the latest global developments.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Suivi quotidien des actualités artistiques et technologiques internationales, catégorisation automatique et transformation en matériel pédagogique, garantissant la synchronisation du contenu des cours avec les derniers développements mondiaux.</p>
+        </div>
+
+        <div class="zh"><h3>自動產文/社群推播整合</h3></div>
+        <div class="en"><h3>Automated Content/Social Media Integration</h3></div>
+        <div class="fr"><h3>Intégration Automatique de Contenu/Médias Sociaux</h3></div>
+        
+        <div class="zh content-block">
+            <p>智能生成招生文案、社群貼文、官方網站更新內容，維持學校形象的一致性與活躍度。</p>
+        </div>
+        <div class="en content-block">
+            <p>Intelligently generates recruitment content, social media posts, and official website updates to maintain consistency and vibrancy of the school's image.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Générer automatiquement des documents de recrutement, des publications sur les médias sociaux et des mises à jour du site officiel pour maintenir la cohérence et la vitalité de l'image de l'école.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="zh"><h2>5. 雙聯學制（台法合作）</h2></div>
+        <div class="en"><h2>5. Dual Degree Program (Taiwan-France Cooperation)</h2></div>
+        <div class="fr"><h2>5. Programme Double Diplôme (Coopération Taiwan-France)</h2></div>
+        
+        <div class="zh"><h3>合作對象</h3></div>
+        <div class="en"><h3>Cooperation Partner</h3></div>
+        <div class="fr"><h3>Partenaire de Coopération</h3></div>
+        
+        <div class="zh content-block">
+            <p>台灣陽明交大附中</p>
+        </div>
+        <div class="en content-block">
+            <p>National Yang Ming Chiao Tung University Affiliated Senior High School, Taiwan</p>
+        </div>
+        <div class="fr content-block">
+            <p>École Secondaire Affiliée à l'Université Nationale de Yang Ming Chiao Tung, Taiwan</p>
+        </div>
+
+        <div class="zh"><h3>合作形式</h3></div>
+        <div class="en"><h3>Cooperation Format</h3></div>
+        <div class="fr"><h3>Format de Coopération</h3></div>
+        
+        <div class="zh content-block">
+            <p>學生可同步修課、獲取雙學籍，完成課程後獲得法國RNCP NIVEAU 4證書。</p>
+        </div>
+        <div class="en content-block">
+            <p>Students can take courses simultaneously, obtain dual enrollment, and receive the French RNCP NIVEAU 4 certificate upon completion.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Les étudiants peuvent suivre des cours simultanément, obtenir un double enseignement et recevoir le certificat RNCP NIVEAU 4 français à l'achèvement.</p>
+        </div>
+
+        <div class="zh"><h3>雙語課程設計</h3></div>
+        <div class="en"><h3>Bilingual Course Design</h3></div>
+        <div class="fr"><h3>Conception de Cours Bilingues</h3></div>
+        
+        <div class="zh content-block">
+            <p>課程以中英為主，提供法文選修，確保學生具備多語言能力與國際視野。</p>
+        </div>
+        <div class="en content-block">
+            <p>Courses are primarily in Chinese and English, with French electives, ensuring students develop multilingual abilities and international perspectives.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Les cours sont principalement en chinois et en anglais, avec des options en français, garantissant la développement des compétences linguistiques et des perspectives internationales des étudiants.</p>
+        </div>
+
+        <div class="zh"><h3>混合教學模式</h3></div>
+        <div class="en"><h3>Hybrid Teaching Mode</h3></div>
+        <div class="fr"><h3>Mode d'Enseignement Hybride</h3></div>
+        
+        <div class="zh content-block">
+            <p>採遠距/實體混合模式，搭配AI智慧學習系統，打破地理限制。</p>
+        </div>
+        <div class="en content-block">
+            <p>Adopting a remote/physical hybrid model paired with AI smart learning systems to overcome geographical limitations.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Adopter un mode d'enseignement hybride à distance/physique associé à des systèmes d'apprentissage intelligent pour surmonter les limitations géographiques.</p>
+        </div>
+
+        <div class="zh"><h3>學分對照與教師協同</h3></div>
+        <div class="en"><h3>Credit Equivalence and Teacher Collaboration</h3></div>
+        <div class="fr"><h3>Équivalence de Crédits et Collaboration entre Enseignants</h3></div>
+        
+        <div class="zh content-block">
+            <p>共同規劃學分對照、課程架構、教師協同授課制度，確保教育品質一致。</p>
+        </div>
+        <div class="en content-block">
+            <p>Jointly planning credit equivalence, curriculum framework, and teacher collaborative teaching systems to ensure consistent educational quality.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Planifier conjointement l'équivalence des crédits, le cadre du programme et les systèmes d'enseignement collaboratif entre enseignants pour garantir la qualité éducative cohérente.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="zh"><h2>6. 未來展望</h2></div>
+        <div class="en"><h2>6. Future Vision</h2></div>
+        <div class="fr"><h2>6. Vision Future</h2></div>
+        
+        <div class="zh"><h3>短期目標</h3></div>
+        <div class="en"><h3>Short-term Goals</h3></div>
+        <div class="fr"><h3>Objectifs à Court Terme</h3></div>
+        
+        <div class="zh content-block">
+            <p>建立與亞洲（特別是台灣）的雙聯合作關係，快速啟動招生計劃，建立品牌知名度。</p>
+        </div>
+        <div class="en content-block">
+            <p>Establishing dual-degree cooperation with Asia (especially Taiwan), quickly launching recruitment plans, and building brand awareness.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Établir une coopération double degré avec l'Asie (particulièrement Taïwan), lancer rapidement des plans de recrutement et construire l'identité de marque.</p>
+        </div>
+
+        <div class="zh"><h3>中期目標</h3></div>
+        <div class="en"><h3>Medium-term Goals</h3></div>
+        <div class="fr"><h3>Objectifs à Moyen Terme</h3></div>
+        
+        <div class="zh content-block">
+            <p>取得RNCP文憑授權，建立線上與實體融合的混合校區，擴大課程範圍與學生來源。</p>
+        </div>
+        <div class="en content-block">
+            <p>Obtaining RNCP diploma authorization, establishing hybrid campuses that integrate online and physical learning, expanding course range and student sources.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Obtenir l'autorisation du diplôme RNCP, établir des campus hybrides qui intègrent l'apprentissage en ligne et physique, élargissant la gamme des cours et les sources d'étudiants.</p>
+        </div>
+
+        <div class="zh"><h3>長期目標</h3></div>
+        <div class="en"><h3>Long-term Goals</h3></div>
+        <div class="fr"><h3>Objectifs à Long Terme</h3></div>
+        
+        <div class="zh content-block">
+            <p>拓展至亞洲其他國家，成為全球科技藝術人才的樞紐據點，引領藝術教育創新趨勢。</p>
+        </div>
+        <div class="en content-block">
+            <p>Expanding to other Asian countries, becoming a global hub for technological and artistic talents, and leading innovative trends in arts education.</p>
+        </div>
+        <div class="fr content-block">
+            <p>Étendre à d'autres pays asiatiques, devenir un hub mondial pour les talents technologiques et artistiques, et conduire les tendances innovantes dans l'éducation artistique.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="zh">
+            <p>語言版本切換</p>
+            <p>此手冊提供中、英、法三語版本，用於招生簡章、官方網站、合作備忘錄（MOU）、商標註冊文件。</p>
+        </div>
+        <div class="en">
+            <p>Language Version Switching</p>
+            <p>This handbook is available in Chinese, English, and French versions for use in recruitment materials, official websites, memorandums of understanding (MOUs), and trademark registration documents.</p>
+        </div>
+        <div class="fr">
+            <p>Changement de Version Linguistique</p>
+            <p>Ce manuel est disponible en versions chinoise, anglaise et française pour utilisation dans les documents de recrutement, les sites Web officiels, les protocoles d'entente (MOU) et les documents d'enregistrement de marque.</p>
+        </div>
+    </div>
+</body>
+</html>
